@@ -8,73 +8,65 @@
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;font-size:14px;color:#7A7A7A;background:#f9f9f7;padding:1rem}
-.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
 .hdr{background:#F78805;border-radius:12px;padding:1.1rem 1.4rem;margin-bottom:1rem;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
 .hdr-logo{width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1.5px solid rgba(255,255,255,.4)}
 .hdr-title{font-size:17px;font-weight:500;color:#fff}
 .hdr-sub{font-size:12px;color:rgba(255,255,255,.85);margin-top:2px}
-.hdr-right select{font-size:13px;border-radius:8px;padding:6px 12px;background:rgba(255,255,255,.18);color:#fff;border:0.5px solid rgba(255,255,255,.45);cursor:pointer}
+.hdr-right select{font-size:13px;border-radius:8px;padding:6px 12px;background:rgba(255,255,255,.18);color:#fff;border:.5px solid rgba(255,255,255,.45);cursor:pointer}
 .hdr-right select option{color:#333;background:#fff}
 .nav{display:flex;gap:6px;margin-bottom:1rem;flex-wrap:wrap}
-.nav-btn{padding:7px 16px;border-radius:8px;border:0.5px solid #d4d4d4;font-size:13px;cursor:pointer;background:#fff;color:#7A7A7A;display:flex;align-items:center;gap:5px;transition:all .15s}
+.nav-btn{padding:7px 16px;border-radius:8px;border:.5px solid #d4d4d4;font-size:13px;cursor:pointer;background:#fff;color:#7A7A7A;display:flex;align-items:center;gap:5px}
 .nav-btn.on{background:#F78805;color:#fff;border-color:#F78805}
 .pg{display:none}.pg.on{display:block}
 .mcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:9px;margin-bottom:1rem}
-.mc{background:#fef7ee;border-radius:8px;padding:12px 14px;border:0.5px solid #fde8c3}
+.mc{background:#fef7ee;border-radius:8px;padding:12px 14px;border:.5px solid #fde8c3}
 .mc-lbl{font-size:11px;color:#7A7A7A;margin-bottom:3px}
 .mc-val{font-size:21px;font-weight:500;color:#F78805}
-.mc-val.alt{color:#7A7A7A}
-.mc-val.green{color:#1D9E75}
-.mc-val.red{color:#c0392b}
+.mc-val.g{color:#1D9E75}.mc-val.r{color:#c0392b}.mc-val.a{color:#7A7A7A}
 .mc-sub{font-size:11px;color:#aaa;margin-top:1px}
-.card{background:#fff;border:0.5px solid #e8e8e8;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem}
-.card-t{font-size:13px;font-weight:500;color:#7A7A7A;margin-bottom:10px;display:flex;align-items:center;gap:6px;border-bottom:1.5px solid #fde8c3;padding-bottom:8px}
-.card-t i{color:#F78805}
-.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
+.card{background:#fff;border:.5px solid #e8e8e8;border-radius:12px;padding:1rem 1.2rem;margin-bottom:1rem}
+.ct{font-size:13px;font-weight:500;color:#7A7A7A;margin-bottom:10px;display:flex;align-items:center;gap:6px;border-bottom:1.5px solid #fde8c3;padding-bottom:8px}
+.ct i{color:#F78805}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1rem}
 .lg{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px;font-size:11px;color:#7A7A7A}
 .lg span{display:flex;align-items:center;gap:4px}
-.lg-dot{width:9px;height:9px;border-radius:2px;flex-shrink:0}
-.nps-hero{display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:14px}
-.nps-big{font-size:58px;font-weight:500;line-height:1;color:#F78805}
-.badge{display:inline-block;padding:3px 11px;border-radius:20px;font-size:11px;font-weight:500}
-.gauge-track{height:18px;border-radius:9px;background:linear-gradient(to right,#c0392b 0%,#c0392b 33%,#F78805 33%,#F78805 66%,#1D9E75 66%,#1D9E75 100%);position:relative;margin:10px 0 4px}
-.gauge-pin{position:absolute;top:-5px;width:4px;height:28px;background:#7A7A7A;border-radius:2px;transform:translateX(-50%)}
-.gauge-lbls{display:flex;justify-content:space-between;font-size:10px;color:#aaa;margin-top:3px}
+.lgd{width:9px;height:9px;border-radius:2px;flex-shrink:0}
+.nps-big{font-size:58px;font-weight:500;line-height:1}
+.bdg{display:inline-block;padding:3px 11px;border-radius:20px;font-size:11px;font-weight:500}
+.gauge{height:18px;border-radius:9px;background:linear-gradient(to right,#c0392b 0%,#c0392b 33%,#F78805 33%,#F78805 66%,#1D9E75 66%,#1D9E75 100%);position:relative;margin:10px 0 4px}
+.gpin{position:absolute;top:-5px;width:4px;height:28px;background:#7A7A7A;border-radius:2px;transform:translateX(-50%)}
+.glbl{display:flex;justify-content:space-between;font-size:10px;color:#aaa;margin-top:3px}
 .seg3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
 .seg{border-radius:8px;padding:10px 8px;text-align:center}
-.seg-v{font-size:20px;font-weight:500}
-.seg-l{font-size:11px;margin-top:2px}
-.seg-p{font-size:10px;margin-top:1px}
-.svc-row{display:flex;align-items:center;gap:7px;margin-bottom:8px}
-.svc-name{font-size:11px;color:#7A7A7A;min-width:136px;max-width:136px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.svc-bar-w{flex:1;height:20px;background:#f5f5f5;border-radius:4px;overflow:hidden}
-.svc-bar{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:6px;font-size:10px;color:#fff;font-weight:500}
-.svc-nps{font-size:12px;font-weight:500;min-width:36px;text-align:right}
-.hr-row{display:flex;align-items:center;gap:6px;margin-bottom:6px}
-.hr-lbl{font-size:11px;color:#7A7A7A;min-width:38px}
-.hr-bar-w{flex:1;background:#f5f5f5;border-radius:3px;height:18px;overflow:hidden}
-.hr-bar{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:5px;font-size:10px;color:#fff;font-weight:500}
-.hr-num{font-size:11px;color:#7A7A7A;min-width:30px;text-align:right}
-.tasa-pill{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:500;min-width:42px;text-align:center}
-.ins-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.seg-v{font-size:20px;font-weight:500}.seg-l{font-size:11px;margin-top:2px}.seg-p{font-size:10px;margin-top:1px}
+.sr{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.sn{font-size:11px;color:#7A7A7A;min-width:136px;max-width:136px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sbw{flex:1;height:20px;background:#f5f5f5;border-radius:4px;overflow:hidden}
+.sb{height:100%;border-radius:4px;display:flex;align-items:center;padding-left:6px;font-size:10px;color:#fff;font-weight:500}
+.snps{font-size:12px;font-weight:500;min-width:36px;text-align:right}
+.hr{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.hrl{font-size:11px;color:#7A7A7A;min-width:38px}
+.hrbw{flex:1;background:#f5f5f5;border-radius:3px;height:18px;overflow:hidden}
+.hrb{height:100%;border-radius:3px;display:flex;align-items:center;padding-left:5px;font-size:10px;color:#fff;font-weight:500}
+.hrn{font-size:11px;color:#7A7A7A;min-width:30px;text-align:right}
+.tp{font-size:10px;padding:2px 8px;border-radius:10px;font-weight:500;min-width:42px;text-align:center}
+.ig{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .ins{border-radius:8px;padding:11px 13px}
 .ins-t{font-size:12px;font-weight:500;margin-bottom:5px}
 .ins-b{font-size:11px;line-height:1.65}
-.qual{padding:11px 13px;border-left:3px solid;border-radius:0 4px 4px 0}
-.qual-t{font-size:12px;font-weight:500;margin-bottom:5px}
-.qual-b{font-size:11px;line-height:1.65}
-.qual-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.ql{padding:11px 13px;border-left:3px solid;border-radius:0 4px 4px 0}
+.ql-t{font-size:12px;font-weight:500;margin-bottom:5px}
+.ql-b{font-size:11px;line-height:1.65}
+.qg{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 @media(max-width:600px){
-  .two-col,.seg3,.ins-grid,.qual-grid{grid-template-columns:1fr}
-  .svc-name{min-width:90px;max-width:90px}
+  .two,.seg3,.ig,.qg{grid-template-columns:1fr}
+  .sn{min-width:90px;max-width:90px}
   .nps-big{font-size:42px}
   body{padding:.5rem}
 }
 </style>
 </head>
 <body>
-
-<h1 class="sr-only">Dashboard de satisfacción y NPS — Forja Empresas 2026</h1>
 
 <div class="hdr">
   <div style="display:flex;align-items:center;gap:12px">
@@ -95,62 +87,41 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;f
 
 <div class="nav">
   <button class="nav-btn on" onclick="goPage('p-exp',this)"><i class="ti ti-heart" aria-hidden="true"></i>Experiencia del paciente</button>
-  <button class="nav-btn" onclick="goPage('p-gestion',this)"><i class="ti ti-phone" aria-hidden="true"></i>Gestión de llamadas</button>
   <button class="nav-btn" onclick="goPage('p-nps',this)"><i class="ti ti-star" aria-hidden="true"></i>Análisis NPS</button>
+  <button class="nav-btn" onclick="goPage('p-gestion',this)"><i class="ti ti-phone" aria-hidden="true"></i>Gestión de llamadas</button>
   <button class="nav-btn" onclick="goPage('p-franjas',this)"><i class="ti ti-clock" aria-hidden="true"></i>Franjas horarias</button>
 </div>
 
-<!-- EXPERIENCIA DEL PACIENTE -->
+<!-- 1. EXPERIENCIA DEL PACIENTE -->
 <div id="p-exp" class="pg on">
   <div class="mcards" id="mc-exp"></div>
-  <div class="two-col">
+  <div class="two">
     <div class="card">
-      <div class="card-t"><i class="ti ti-clipboard-list" aria-hidden="true"></i>Satisfacción global — P1</div>
+      <div class="ct"><i class="ti ti-clipboard-list" aria-hidden="true"></i>Satisfacción global — P1</div>
       <div class="lg" id="lg-p1"></div>
-      <div style="position:relative;height:200px"><canvas id="ch-p1" role="img" aria-label="Distribución calificaciones P1">Distribución P1.</canvas></div>
+      <div style="position:relative;height:200px"><canvas id="ch-p1" role="img" aria-label="Distribución calificaciones P1">P1.</canvas></div>
     </div>
     <div class="card">
-      <div class="card-t"><i class="ti ti-users" aria-hidden="true"></i>Recomendación — P2</div>
+      <div class="ct"><i class="ti ti-users" aria-hidden="true"></i>Recomendación — P2</div>
       <div class="lg" id="lg-p2"></div>
-      <div style="position:relative;height:200px"><canvas id="ch-p2" role="img" aria-label="Distribución calificaciones P2">Distribución P2.</canvas></div>
+      <div style="position:relative;height:200px"><canvas id="ch-p2" role="img" aria-label="Distribución calificaciones P2">P2.</canvas></div>
     </div>
   </div>
   <div class="card">
-    <div class="card-t"><i class="ti ti-chart-bar" aria-hidden="true"></i>NPS y satisfacción promedio por servicio</div>
+    <div class="ct"><i class="ti ti-chart-bar" aria-hidden="true"></i>NPS y satisfacción promedio por servicio</div>
     <div id="svc-chart"></div>
   </div>
   <div class="card">
-    <div class="card-t"><i class="ti ti-building" aria-hidden="true"></i>NPS por aseguradora</div>
+    <div class="ct"><i class="ti ti-building" aria-hidden="true"></i>NPS por aseguradora</div>
     <div id="aseg-chart"></div>
   </div>
 </div>
 
-<!-- GESTIÓN DE LLAMADAS -->
-<div id="p-gestion" class="pg">
-  <div class="mcards" id="mc-gest"></div>
-  <div class="two-col">
-    <div class="card">
-      <div class="card-t"><i class="ti ti-phone" aria-hidden="true"></i>Resultado de llamadas</div>
-      <div class="lg" id="lg-disp"></div>
-      <div style="position:relative;height:200px"><canvas id="ch-disp" role="img" aria-label="Resultados de llamadas">Disposición.</canvas></div>
-    </div>
-    <div class="card">
-      <div class="card-t"><i class="ti ti-clock" aria-hidden="true"></i>Duración de llamadas contestadas</div>
-      <div class="lg" id="lg-dur"></div>
-      <div style="position:relative;height:200px"><canvas id="ch-dur" role="img" aria-label="Duración de llamadas">Duración.</canvas></div>
-    </div>
-  </div>
-  <div class="card">
-    <div class="card-t"><i class="ti ti-stethoscope" aria-hidden="true"></i>Volumen de encuestas por servicio</div>
-    <div id="ch-serv-w" style="position:relative"><canvas id="ch-serv" role="img" aria-label="Encuestas por servicio">Servicios.</canvas></div>
-  </div>
-</div>
-
-<!-- ANÁLISIS NPS -->
+<!-- 2. ANÁLISIS NPS -->
 <div id="p-nps" class="pg">
   <div class="card">
-    <div class="card-t"><i class="ti ti-star" aria-hidden="true"></i>Índice NPS — escala 1 a 9 · Pregunta 2: recomendación</div>
-    <div class="nps-hero">
+    <div class="ct"><i class="ti ti-star" aria-hidden="true"></i>Índice NPS — escala 1 a 9 · Pregunta 2: recomendación</div>
+    <div style="display:flex;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:14px">
       <div>
         <div style="font-size:12px;color:#aaa;margin-bottom:4px">NPS recomendación (P2)</div>
         <div class="nps-big" id="nps-num">—</div>
@@ -163,244 +134,378 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;f
       </div>
       <div id="nps-formula" style="font-size:12px;color:#7A7A7A;line-height:1.9;border-left:3px solid #F78805;padding-left:12px"></div>
     </div>
-    <div class="gauge-track"><div class="gauge-pin" id="gauge-pin" style="left:50%"></div></div>
-    <div class="gauge-lbls"><span>−100 Crítico</span><span>0 Neutro</span><span>+100 Excelente</span></div>
+    <div class="gauge"><div class="gpin" id="gauge-pin" style="left:50%"></div></div>
+    <div class="glbl"><span>-100 Crítico</span><span>0 Neutro</span><span>+100 Excelente</span></div>
     <div class="seg3" id="nps-segs"></div>
   </div>
   <div id="nps-comp-card" class="card" style="display:none">
-    <div class="card-t"><i class="ti ti-trending-up" aria-hidden="true"></i>Evolución mensual del NPS</div>
-    <div style="position:relative;height:210px"><canvas id="ch-npscomp" role="img" aria-label="Evolución mensual NPS">Evolución NPS.</canvas></div>
+    <div class="ct"><i class="ti ti-trending-up" aria-hidden="true"></i>Evolución mensual del NPS</div>
+    <div style="position:relative;height:210px"><canvas id="ch-npscomp" role="img" aria-label="Evolución NPS">Evolución.</canvas></div>
     <div class="lg" style="margin-top:8px;margin-bottom:0">
-      <span><span class="lg-dot" style="background:#F78805"></span>NPS recomendación P2</span>
-      <span><span class="lg-dot" style="background:#7A7A7A"></span>NPS satisfacción P1</span>
+      <span><span class="lgd" style="background:#F78805"></span>NPS recomendación P2</span>
+      <span><span class="lgd" style="background:#7A7A7A"></span>NPS satisfacción P1</span>
     </div>
   </div>
   <div class="card">
-    <div class="card-t"><i class="ti ti-clipboard-text" aria-hidden="true"></i>Análisis cuantitativo y cualitativo</div>
+    <div class="ct"><i class="ti ti-clipboard-text" aria-hidden="true"></i>Análisis cuantitativo y cualitativo</div>
     <div class="mcards" id="mc-nps" style="margin-bottom:12px"></div>
-    <div class="qual-grid" id="qual-grid"></div>
+    <div class="qg" id="qual-grid"></div>
   </div>
 </div>
 
-<!-- FRANJAS HORARIAS -->
+<!-- 3. GESTIÓN DE LLAMADAS -->
+<div id="p-gestion" class="pg">
+  <div class="mcards" id="mc-gest"></div>
+  <div class="two">
+    <div class="card">
+      <div class="ct"><i class="ti ti-phone" aria-hidden="true"></i>Resultado de llamadas</div>
+      <div class="lg" id="lg-disp"></div>
+      <div style="position:relative;height:220px"><canvas id="ch-disp" role="img" aria-label="Resultados de llamadas">Disposición.</canvas></div>
+    </div>
+    <div class="card">
+      <div class="ct"><i class="ti ti-clock" aria-hidden="true"></i>Duración de llamadas contestadas</div>
+      <div class="lg" id="lg-dur"></div>
+      <div style="position:relative;height:220px"><canvas id="ch-dur" role="img" aria-label="Duración de llamadas">Duración.</canvas></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="ct"><i class="ti ti-stethoscope" aria-hidden="true"></i>Volumen de encuestas por servicio</div>
+    <div id="ch-serv-w" style="position:relative"><canvas id="ch-serv" role="img" aria-label="Encuestas por servicio">Servicios.</canvas></div>
+  </div>
+</div>
+
+<!-- 4. FRANJAS HORARIAS -->
 <div id="p-franjas" class="pg">
   <div class="mcards" id="mc-franjas"></div>
   <div class="card">
-    <div class="card-t"><i class="ti ti-chart-bar" aria-hidden="true"></i>Contactadas vs encuestas respondidas por hora</div>
+    <div class="ct"><i class="ti ti-chart-bar" aria-hidden="true"></i>Contactadas vs encuestas respondidas por hora</div>
     <div class="lg">
-      <span><span class="lg-dot" style="background:#F78805"></span>Contactadas</span>
-      <span><span class="lg-dot" style="background:#7A7A7A"></span>Respondieron encuesta</span>
+      <span><span class="lgd" style="background:#F78805"></span>Contactadas</span>
+      <span><span class="lgd" style="background:#7A7A7A"></span>Respondieron encuesta</span>
     </div>
     <div style="position:relative;height:230px"><canvas id="ch-horas" role="img" aria-label="Franjas horarias">Horas.</canvas></div>
   </div>
-  <div class="two-col">
+  <div class="two">
     <div class="card">
-      <div class="card-t"><i class="ti ti-trending-up" aria-hidden="true"></i>Tasa de conversión por hora</div>
+      <div class="ct"><i class="ti ti-trending-up" aria-hidden="true"></i>Tasa de conversión por hora</div>
       <div id="conv-bars"></div>
     </div>
     <div class="card">
-      <div class="card-t"><i class="ti ti-calendar-week" aria-hidden="true"></i>Actividad por día de semana</div>
+      <div class="ct"><i class="ti ti-calendar-week" aria-hidden="true"></i>Actividad por día de semana</div>
       <div style="position:relative;height:230px"><canvas id="ch-dias" role="img" aria-label="Días de semana">Días.</canvas></div>
     </div>
   </div>
   <div class="card">
-    <div class="card-t"><i class="ti ti-bulb" aria-hidden="true"></i>Recomendaciones operativas</div>
-    <div class="ins-grid" id="franjas-ins"></div>
+    <div class="ct"><i class="ti ti-bulb" aria-hidden="true"></i>Recomendaciones operativas</div>
+    <div class="ig" id="franjas-ins"></div>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js" crossorigin="anonymous"></script>
 <script>
-const DB={
-  Mayo:{total:242,answer:184,noAnswer:30,voicemail:24,busy:3,invalid:1,durGt45:111,dur1_15:45,dur31_45:5,dur16_30:23,encP1:97,encP2:91,ignored:87,p1:{1:7,2:1,3:3,5:1,6:4,7:6,8:14,9:61},p2:{1:6,3:2,6:1,7:4,8:18,9:60},svc:{"Laboratorios":{n:49,nps:57,p1:7.6,p2:8.1},"Curaciones":{n:17,nps:68,p1:8.4,p2:8.4},"Psicosocial":{n:9,nps:44,p1:7.8,p2:7.9},"Especialista":{n:13,nps:55,p1:7.7,p2:8.4},"Nutrición":{n:5,nps:88,p1:8.9,p2:8.9},"Enf. turnos":{n:5,nps:-29,p1:5.4,p2:4.7}},aseg:{"Compensar":{n:61,nps:57},"Aliansalud":{n:53,nps:74},"Colsanitas":{n:10,nps:62},"Sura":{n:4,nps:75},"Allianz":{n:6,nps:21}},hrC:[15,10,59,23,13,11,11,8,1,1,13,19],hrE:[6,3,38,17,9,10,4,5,0,1,2,3],dC:[5,43,25,30,50,31],dE:[3,26,15,4,45,5]},
-  Junio:{total:1059,answer:855,noAnswer:94,voicemail:101,busy:7,invalid:2,durGt45:600,dur1_15:107,dur31_45:38,dur16_30:110,encP1:524,encP2:503,ignored:331,p1:{1:9,2:3,3:3,4:4,5:12,6:9,7:33,8:88,9:363},p2:{1:9,2:2,3:2,4:3,5:11,6:12,7:29,8:70,9:365},svc:{"Terapia física":{n:150,nps:60,p1:8.3,p2:8.3},"Fonoaudiología":{n:131,nps:69,p1:8.2,p2:8.5},"Terapia ocupacional":{n:94,nps:71,p1:8.5,p2:8.4},"Terapia respiratoria":{n:79,nps:67,p1:8.0,p2:8.3},"Laboratorios":{n:14,nps:57,p1:7.6,p2:8.1},"Enf. domiciliaria":{n:11,nps:73,p1:8.8,p2:8.7},"Geriatría":{n:5,nps:60,p1:8.2,p2:8.4}},aseg:{"Compensar":{n:225,nps:57},"Aliansalud":{n:152,nps:74},"Colsanitas/Colmed.":{n:48,nps:62},"Sura":{n:16,nps:75},"Allianz":{n:8,nps:21},"Medplus":{n:6,nps:50}},hrC:[58,62,163,189,156,34,106,33,25,17,12,0],hrE:[27,36,135,94,58,26,86,25,20,13,6,0],dC:[33,221,136,164,248,53],dE:[17,132,65,33,225,54]}
-};
-const HORAS=['8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'];
-const DIAS=['Lunes','Martes','Miérc.','Jueves','Viernes','Sábado'];
+window.addEventListener('load', function() {
 
-function getMes(){return document.getElementById('selMes').value}
+var DB = {
+  Mayo:{total:242,answer:184,noAnswer:30,voicemail:24,busy:3,invalid:1,durGt45:111,dur1_15:45,dur31_45:5,dur16_30:23,encP1:97,encP2:91,
+    p1:{1:7,2:1,3:3,5:1,6:4,7:6,8:14,9:61},
+    p2:{1:6,3:2,6:1,7:4,8:18,9:60},
+    svc:{"Laboratorios":{n:49,nps:57,p1:7.6,p2:8.1},"Curaciones":{n:17,nps:68,p1:8.4,p2:8.4},"Psicosocial":{n:9,nps:44,p1:7.8,p2:7.9},"Especialista":{n:13,nps:55,p1:7.7,p2:8.4},"Nutricion":{n:5,nps:88,p1:8.9,p2:8.9},"Enf. turnos":{n:5,nps:-29,p1:5.4,p2:4.7}},
+    aseg:{"Compensar":{n:61,nps:57},"Aliansalud":{n:53,nps:74},"Colsanitas":{n:10,nps:62},"Sura":{n:4,nps:75},"Allianz":{n:6,nps:21}},
+    hrC:[15,10,59,23,13,11,11,8,1,1,13,19],hrE:[6,3,38,17,9,10,4,5,0,1,2,3],
+    dC:[5,43,25,30,50,31],dE:[3,26,15,4,45,5]},
+  Junio:{total:1059,answer:855,noAnswer:94,voicemail:101,busy:7,invalid:2,durGt45:600,dur1_15:107,dur31_45:38,dur16_30:110,encP1:524,encP2:503,
+    p1:{1:9,2:3,3:3,4:4,5:12,6:9,7:33,8:88,9:363},
+    p2:{1:9,2:2,3:2,4:3,5:11,6:12,7:29,8:70,9:365},
+    svc:{"Terapia fisica":{n:150,nps:60,p1:8.3,p2:8.3},"Fonoaudiologia":{n:131,nps:69,p1:8.2,p2:8.5},"Terapia ocupacional":{n:94,nps:71,p1:8.5,p2:8.4},"Terapia respiratoria":{n:79,nps:67,p1:8.0,p2:8.3},"Laboratorios":{n:14,nps:57,p1:7.6,p2:8.1},"Enf. domiciliaria":{n:11,nps:73,p1:8.8,p2:8.7},"Geriatria":{n:5,nps:60,p1:8.2,p2:8.4}},
+    aseg:{"Compensar":{n:225,nps:57},"Aliansalud":{n:152,nps:74},"Colsanitas":{n:48,nps:62},"Sura":{n:16,nps:75},"Allianz":{n:8,nps:21},"Medplus":{n:6,nps:50}},
+    hrC:[58,62,163,189,156,34,106,33,25,17,12,0],hrE:[27,36,135,94,58,26,86,25,20,13,6,0],
+    dC:[33,221,136,164,248,53],dE:[17,132,65,33,225,54]}
+};
+
+var HORAS=['8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'];
+var DIAS=['Lunes','Martes','Miercoles','Jueves','Viernes','Sabado'];
+
+function getMes(){return document.getElementById('selMes').value;}
 
 function getData(){
-  const m=getMes();if(m!=='all')return DB[m];
-  const a=DB.Mayo,b=DB.Junio;
-  const add=k=>a[k]+b[k];
-  const addD=(o1,o2)=>{const r={};[1,2,3,4,5,6,7,8,9].forEach(k=>r[k]=(o1[k]||0)+(o2[k]||0));return r};
-  const mSvc=(o1,o2)=>{const r={};[...new Set([...Object.keys(o1),...Object.keys(o2)])].forEach(k=>{const x=o1[k]||{n:0,nps:0,p1:0,p2:0},y=o2[k]||{n:0,nps:0,p1:0,p2:0},n=x.n+y.n;if(n>0)r[k]={n,nps:Math.round((x.nps*x.n+y.nps*y.n)/n),p1:+((x.p1*x.n+y.p1*y.n)/n).toFixed(1),p2:+((x.p2*x.n+y.p2*y.n)/n).toFixed(1)}});return r};
-  const mAseg=(o1,o2)=>{const r={};[...new Set([...Object.keys(o1),...Object.keys(o2)])].forEach(k=>{const x=o1[k]||{n:0,nps:0},y=o2[k]||{n:0,nps:0},n=x.n+y.n;if(n>0)r[k]={n,nps:Math.round((x.nps*x.n+y.nps*y.n)/n)}});return r};
-  return{total:add('total'),answer:add('answer'),noAnswer:add('noAnswer'),voicemail:add('voicemail'),busy:add('busy'),invalid:add('invalid'),durGt45:add('durGt45'),dur1_15:add('dur1_15'),dur31_45:add('dur31_45'),dur16_30:add('dur16_30'),encP1:add('encP1'),encP2:add('encP2'),ignored:add('ignored'),p1:addD(a.p1,b.p1),p2:addD(a.p2,b.p2),svc:mSvc(a.svc,b.svc),aseg:mAseg(a.aseg,b.aseg),hrC:HORAS.map((_,i)=>a.hrC[i]+b.hrC[i]),hrE:HORAS.map((_,i)=>a.hrE[i]+b.hrE[i]),dC:DIAS.map((_,i)=>a.dC[i]+b.dC[i]),dE:DIAS.map((_,i)=>a.dE[i]+b.dE[i])};
-}
-
-function calcNPS(dist){const p=dist[9]||0,det=[1,2,3,4,5,6].reduce((s,k)=>s+(dist[k]||0),0),pas=[7,8].reduce((s,k)=>s+(dist[k]||0),0),tot=p+det+pas;return{nps:tot>0?Math.round((p-det)/tot*100):0,prom:p,det,pas,tot}}
-function calcAvg(dist){let s=0,c=0;Object.entries(dist).forEach(([k,v])=>{if(parseInt(k)>0){s+=parseInt(k)*v;c+=v}});return c>0?+(s/c).toFixed(1):0}
-function pct(n,d){return d>0?Math.round(n/d*100):0}
-function npsC(v){return v>=50?'#1D9E75':v>=0?'#F78805':'#c0392b'}
-function npsLbl(v){return v>=70?['Excelente','#e8f8f1','#0F6E56']:v>=50?['Muy bueno','#e8f8f1','#0F6E56']:v>=30?['Bueno','#fff3e0','#8a4f00']:v>=0?['Aceptable','#fff3e0','#8a4f00']:['Bajo','#fdecea','#8B0000']}
-
-const CHS={};
-function mkC(id,cfg){if(CHS[id])CHS[id].destroy();const el=document.getElementById(id);if(!el)return;CHS[id]=new Chart(el,cfg)}
-
-/* Data labels plugin */
-const dlPlugin={id:'dl',afterDatasetsDraw(chart){
-  const{ctx}=chart;
-  chart.data.datasets.forEach((ds,di)=>{
-    const meta=chart.getDatasetMeta(di);
-    if(meta.hidden)return;
-    meta.data.forEach((bar,i)=>{
-      const v=ds.data[i];if(!v||v===0)return;
-      const isH=chart.config.options.indexAxis==='y';
-      ctx.save();ctx.font='bold 10px sans-serif';ctx.textBaseline='middle';
-      if(isH){
-        const x=bar.x,y=bar.y;
-        if(bar.width>28){ctx.fillStyle='#fff';ctx.textAlign='left';ctx.fillText(v,x-bar.width+6,y);}
-        else{ctx.fillStyle='#7A7A7A';ctx.textAlign='left';ctx.fillText(v,x+4,y);}
-      }else{
-        const x=bar.x,y=bar.y;
-        if(bar.height>16){ctx.fillStyle='#fff';ctx.textAlign='center';ctx.fillText(v,x,y+bar.height/2);}
-        else{ctx.fillStyle='#7A7A7A';ctx.textAlign='center';ctx.fillText(v,x,y-5);}
-      }
-      ctx.restore();
+  var m=getMes();
+  if(m!=='all') return DB[m];
+  var a=DB.Mayo, b=DB.Junio;
+  function add(k){return a[k]+b[k];}
+  function addD(o1,o2){var r={};[1,2,3,4,5,6,7,8,9].forEach(function(k){r[k]=(o1[k]||0)+(o2[k]||0);});return r;}
+  function mSvc(o1,o2){
+    var r={}, keys=Object.keys(Object.assign({},o1,o2));
+    keys.forEach(function(k){
+      var x=o1[k]||{n:0,nps:0,p1:0,p2:0}, y=o2[k]||{n:0,nps:0,p1:0,p2:0}, n=x.n+y.n;
+      if(n>0) r[k]={n:n,nps:Math.round((x.nps*x.n+y.nps*y.n)/n),p1:parseFloat(((x.p1*x.n+y.p1*y.n)/n).toFixed(1)),p2:parseFloat(((x.p2*x.n+y.p2*y.n)/n).toFixed(1))};
     });
-  });
-}};
-Chart.register(dlPlugin);
-
-function donut(id,lgId,lbls,data,colors){
-  const lg=document.getElementById(lgId),tot=data.reduce((a,b)=>a+b,0);
-  if(lg)lg.innerHTML=lbls.map((l,i)=>`<span><span class="lg-dot" style="background:${colors[i]}"></span>${l}: ${data[i]} (${pct(data[i],tot)}%)</span>`).join('');
-  mkC(id,{type:'doughnut',data:{labels:lbls,datasets:[{data,backgroundColor:colors,borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,cutout:'58%',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.label+': '+c.formattedValue+' ('+Math.round(c.parsed/c.dataset.data.reduce((a,b)=>a+b,0)*100)+'%)'}}}}})}
-
-function barVert(id,lbls,datasets){
-  mkC(id,{type:'bar',data:{labels:lbls,datasets:datasets.map(d=>({...d,borderRadius:3,borderWidth:0}))},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false}},scales:{x:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:11},color:'#7A7A7A',autoSkip:false}},y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:11},color:'#7A7A7A'}}}}})}
-
-function barHoriz(id,wrapId,lbls,data,color,hPx){
-  const wrap=document.getElementById(wrapId);
-  if(wrap)wrap.style.height=hPx+'px';
-  mkC(id,{type:'bar',data:{labels:lbls,datasets:[{data,backgroundColor:color,borderRadius:3,borderWidth:0,label:''}]},options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.parsed.x}}},scales:{x:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:11},color:'#7A7A7A'}},y:{grid:{display:false},ticks:{font:{size:11},color:'#7A7A7A'}}}}})}
-
-function activePage(){
-  const p=document.querySelector('.pg.on');
-  return p?p.id:'p-exp';
+    return r;
+  }
+  function mAseg(o1,o2){
+    var r={}, keys=Object.keys(Object.assign({},o1,o2));
+    keys.forEach(function(k){
+      var x=o1[k]||{n:0,nps:0}, y=o2[k]||{n:0,nps:0}, n=x.n+y.n;
+      if(n>0) r[k]={n:n,nps:Math.round((x.nps*x.n+y.nps*y.n)/n)};
+    });
+    return r;
+  }
+  return{
+    total:add('total'),answer:add('answer'),noAnswer:add('noAnswer'),voicemail:add('voicemail'),
+    busy:add('busy'),invalid:add('invalid'),durGt45:add('durGt45'),dur1_15:add('dur1_15'),
+    dur31_45:add('dur31_45'),dur16_30:add('dur16_30'),encP1:add('encP1'),encP2:add('encP2'),
+    p1:addD(a.p1,b.p1),p2:addD(a.p2,b.p2),svc:mSvc(a.svc,b.svc),aseg:mAseg(a.aseg,b.aseg),
+    hrC:HORAS.map(function(_,i){return a.hrC[i]+b.hrC[i];}),
+    hrE:HORAS.map(function(_,i){return a.hrE[i]+b.hrE[i];}),
+    dC:DIAS.map(function(_,i){return a.dC[i]+b.dC[i];}),
+    dE:DIAS.map(function(_,i){return a.dE[i]+b.dE[i];})
+  };
 }
 
-function goPage(id,btn){
-  document.querySelectorAll('.pg').forEach(p=>p.classList.remove('on'));
-  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('on'));
-  document.getElementById(id).classList.add('on');
-  btn.classList.add('on');
-  setTimeout(render,40);
+function calcNPS(dist){
+  var p=dist[9]||0;
+  var det=(dist[1]||0)+(dist[2]||0)+(dist[3]||0)+(dist[4]||0)+(dist[5]||0)+(dist[6]||0);
+  var pas=(dist[7]||0)+(dist[8]||0);
+  var tot=p+det+pas;
+  return{nps:tot>0?Math.round((p-det)/tot*100):0,prom:p,det:det,pas:pas,tot:tot};
+}
+function calcAvg(dist){var s=0,c=0;Object.keys(dist).forEach(function(k){if(parseInt(k)>0){s+=parseInt(k)*dist[k];c+=dist[k];}});return c>0?parseFloat((s/c).toFixed(1)):0;}
+function pct(n,d){return d>0?Math.round(n/d*100):0;}
+function npsC(v){return v>=50?'#1D9E75':v>=0?'#F78805':'#c0392b';}
+function npsLbl(v){return v>=70?['Excelente','#e8f8f1','#0F6E56']:v>=50?['Muy bueno','#e8f8f1','#0F6E56']:v>=30?['Bueno','#fff3e0','#8a4f00']:v>=0?['Aceptable','#fff3e0','#8a4f00']:['Bajo','#fdecea','#8B0000'];}
+function el(id){return document.getElementById(id);}
+function html(id,v){var e=el(id);if(e)e.innerHTML=v;}
+
+var CHS={};
+function mkC(id,type,data,options,plugins){
+  if(CHS[id]){CHS[id].destroy();}
+  var canvas=el(id);
+  if(!canvas) return;
+  var cfg={type:type,data:data,options:options||{}};
+  if(plugins) cfg.plugins=plugins;
+  CHS[id]=new Chart(canvas,cfg);
 }
 
-function render(){
-  const pg=activePage();
-  const d=getData(),m=getMes();
-  const nP2=calcNPS(d.p2),nP1=calcNPS(d.p1);
-  const avgP1=calcAvg(d.p1),avgP2=calcAvg(d.p2);
-  const[lbl,bg,fg]=npsLbl(nP2.nps),[lbl1,bg1,fg1]=npsLbl(nP1.nps);
+/* data labels for bar charts */
+var dlPlugin={
+  id:'dl',
+  afterDatasetsDraw:function(chart){
+    var ctx=chart.ctx;
+    chart.data.datasets.forEach(function(ds,di){
+      var meta=chart.getDatasetMeta(di);
+      if(meta.hidden) return;
+      meta.data.forEach(function(bar,i){
+        var v=ds.data[i];
+        if(!v||v===0) return;
+        var isH=(chart.config.options.indexAxis==='y');
+        ctx.save();
+        ctx.font='bold 10px sans-serif';
+        ctx.textBaseline='middle';
+        if(isH){
+          if(bar.width>28){ctx.fillStyle='#fff';ctx.textAlign='left';ctx.fillText(v,bar.x-bar.width+6,bar.y);}
+          else{ctx.fillStyle='#7A7A7A';ctx.textAlign='left';ctx.fillText(v,bar.x+4,bar.y);}
+        } else {
+          if(bar.height>16){ctx.fillStyle='#fff';ctx.textAlign='center';ctx.fillText(v,bar.x,bar.y+bar.height/2);}
+          else{ctx.fillStyle='#7A7A7A';ctx.textAlign='center';ctx.fillText(v,bar.x,bar.y-5);}
+        }
+        ctx.restore();
+      });
+    });
+  }
+};
 
-  if(pg==='p-exp'){
-    document.getElementById('mc-exp').innerHTML=
-      `<div class="mc"><div class="mc-lbl"><i class="ti ti-star" aria-hidden="true"></i> NPS recomendación P2</div><div class="mc-val" style="color:${npsC(nP2.nps)}">${(nP2.nps>=0?'+':'')+nP2.nps}</div><div class="mc-sub">${lbl}</div></div>`+
-      `<div class="mc"><div class="mc-lbl">NPS satisfacción P1</div><div class="mc-val" style="color:${npsC(nP1.nps)}">${(nP1.nps>=0?'+':'')+nP1.nps}</div><div class="mc-sub">${npsLbl(nP1.nps)[0]}</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Satisfacción promedio P1</div><div class="mc-val">${avgP1}<span style="font-size:12px;color:#aaa">/9</span></div></div>`+
-      `<div class="mc"><div class="mc-lbl">Recomendación promedio P2</div><div class="mc-val">${avgP2}<span style="font-size:12px;color:#aaa">/9</span></div></div>`+
-      `<div class="mc"><div class="mc-lbl">Promotores (cal. 9)</div><div class="mc-val green">${nP2.prom}</div><div class="mc-sub">${pct(nP2.prom,nP2.tot)}% del total</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Detractores (cal. 1–6)</div><div class="mc-val red">${nP2.det}</div><div class="mc-sub">${pct(nP2.det,nP2.tot)}% · seguimiento</div></div>`;
-    const sC=['1','2','3','4','5','6','7','8','9'];
-    const sCol=(_,i)=>i<=5?'#c0392b':i<=7?'#F78805':'#1D9E75';
-    document.getElementById('lg-p1').innerHTML=`<span><span class="lg-dot" style="background:#c0392b"></span>Detractor (1–6)</span><span><span class="lg-dot" style="background:#F78805"></span>Pasivo (7–8)</span><span><span class="lg-dot" style="background:#1D9E75"></span>Promotor (9)</span>`;
-    document.getElementById('lg-p2').innerHTML=document.getElementById('lg-p1').innerHTML;
-    barVert('ch-p1',sC,[{data:sC.map((_,i)=>d.p1[i+1]||0),backgroundColor:sC.map(sCol),label:'P1'}]);
-    barVert('ch-p2',sC,[{data:sC.map((_,i)=>d.p2[i+1]||0),backgroundColor:sC.map(sCol),label:'P2'}]);
-    const svcs=Object.entries(d.svc).sort((a,b)=>b[1].nps-a[1].nps);
-    const maxN=Math.max(...svcs.map(s=>s[1].n));
-    document.getElementById('svc-chart').innerHTML=svcs.map(([nm,v])=>{
-      const c=v.nps>=50?'#1D9E75':v.nps>=0?'#F78805':'#c0392b';
-      return`<div class="svc-row"><div class="svc-name" title="${nm}">${nm}</div><div class="svc-bar-w"><div class="svc-bar" style="width:${Math.max(Math.round(v.n/maxN*100),6)}%;background:#F78805">${v.n} enc.</div></div><div class="svc-nps" style="color:${c}">${v.nps>=0?'+':''}${v.nps}</div><div style="font-size:10px;color:#aaa;min-width:52px;text-align:right">P1:${v.p1} P2:${v.p2}</div></div>`;
-    }).join('');
-    const asegs=Object.entries(d.aseg).sort((a,b)=>b[1].nps-a[1].nps);
-    const maxA=Math.max(...asegs.map(a=>a[1].n));
-    document.getElementById('aseg-chart').innerHTML=asegs.map(([nm,v])=>{
-      const c=v.nps>=50?'#1D9E75':v.nps>=0?'#F78805':'#c0392b';
-      return`<div class="svc-row"><div class="svc-name" title="${nm}">${nm}</div><div class="svc-bar-w"><div class="svc-bar" style="width:${Math.max(Math.round(v.n/maxA*100),6)}%;background:#7A7A7A">${v.n} pac.</div></div><div class="svc-nps" style="color:${c}">${v.nps>=0?'+':''}${v.nps}</div><div style="font-size:10px;color:#aaa;min-width:36px;text-align:right">n=${v.n}</div></div>`;
+function makeCenterPlugin(tot,label){
+  return {
+    id:'center',
+    beforeDraw:function(chart){
+      var ctx=chart.ctx;
+      var ca=chart.chartArea;
+      if(!ca) return;
+      var cx=(ca.left+ca.right)/2;
+      var cy=(ca.top+ca.bottom)/2;
+      ctx.save();
+      ctx.textAlign='center';
+      ctx.textBaseline='middle';
+      ctx.font='bold 15px sans-serif';
+      ctx.fillStyle='#F78805';
+      ctx.fillText(tot.toLocaleString(),cx,cy-8);
+      ctx.font='11px sans-serif';
+      ctx.fillStyle='#aaa';
+      ctx.fillText(label,cx,cy+10);
+      ctx.restore();
+    }
+  };
+}
+
+function donut(id,lgId,lbls,data,colors,centerLabel){
+  var lg=el(lgId);
+  var tot=data.reduce(function(a,b){return a+b;},0);
+  if(lg){
+    lg.innerHTML=lbls.map(function(l,i){
+      return '<span><span class="lgd" style="background:'+colors[i]+'"></span>'+l+': '+data[i]+' ('+pct(data[i],tot)+'%)</span>';
     }).join('');
   }
+  var cp=makeCenterPlugin(tot,centerLabel||'total');
+  mkC(id,'doughnut',
+    {labels:lbls,datasets:[{data:data,backgroundColor:colors,borderWidth:0}]},
+    {responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return ' '+c.label+': '+c.formattedValue+' ('+Math.round(c.parsed/c.dataset.data.reduce(function(a,b){return a+b;},0)*100)+'%)';}}}}}
+  ,[cp]);
+}
 
-  if(pg==='p-gestion'){
-    document.getElementById('mc-gest').innerHTML=
-      `<div class="mc"><div class="mc-lbl">Total registros</div><div class="mc-val">${d.total.toLocaleString()}</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Contestadas</div><div class="mc-val green">${d.answer.toLocaleString()}</div><div class="mc-sub">Contact ratio: ${pct(d.answer,d.total)}%</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Sin respuesta</div><div class="mc-val alt">${d.noAnswer}</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Buzón de voz</div><div class="mc-val alt">${d.voicemail}</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Encuestas P1</div><div class="mc-val green">${d.encP1}</div><div class="mc-sub">Survey ratio: ${pct(d.encP1,d.answer)}%</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Encuestas P2</div><div class="mc-val green">${d.encP2}</div><div class="mc-sub">${pct(d.encP2,d.encP1)}% completaron P2</div></div>`;
-    donut('ch-disp','lg-disp',['Contestadas','Sin respuesta','Buzón','Ocupado'],[d.answer,d.noAnswer,d.voicemail,d.busy+d.invalid],['#F78805','#7A7A7A','#fdc06a','#c0c0c0']);
-    donut('ch-dur','lg-dur',['>45 seg','1–15 seg','16–30 seg','31–45 seg'],[d.durGt45,d.dur1_15,d.dur16_30,d.dur31_45],['#F78805','#7A7A7A','#fdc06a','#c0c0c0']);
-    const svcsG=Object.entries(d.svc).sort((a,b)=>b[1].n-a[1].n);
-    const hServ=svcsG.length*40+60;
-    barHoriz('ch-serv','ch-serv-w',svcsG.map(s=>s[0]),svcsG.map(s=>s[1].n),'#F78805',hServ);
+function barV(id,lbls,datasets){
+  mkC(id,'bar',
+    {labels:lbls,datasets:datasets.map(function(d){return Object.assign({},d,{borderRadius:3,borderWidth:0});})},
+    {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false}},scales:{x:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:11},color:'#7A7A7A',autoSkip:false}},y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:11},color:'#7A7A7A'}}}}
+  ,[dlPlugin]);
+}
+
+function barH(id,wid,lbls,data,color,hPx){
+  var w=el(wid);
+  if(w) w.style.height=hPx+'px';
+  mkC(id,'bar',
+    {labels:lbls,datasets:[{data:data,backgroundColor:color,borderRadius:3,borderWidth:0,label:''}]},
+    {indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:function(c){return ' '+c.parsed.x;}}}},scales:{x:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:11},color:'#7A7A7A'}},y:{grid:{display:false},ticks:{font:{size:11},color:'#7A7A7A'}}}}
+  ,[dlPlugin]);
+}
+
+function activePage(){var p=document.querySelector('.pg.on');return p?p.id:'p-exp';}
+
+function render(){
+  var pg=activePage();
+  var d=getData(), m=getMes();
+  var nP2=calcNPS(d.p2), nP1=calcNPS(d.p1);
+  var avgP1=calcAvg(d.p1), avgP2=calcAvg(d.p2);
+  var L2=npsLbl(nP2.nps), L1=npsLbl(nP1.nps);
+
+  if(pg==='p-exp'){
+    html('mc-exp',
+      '<div class="mc"><div class="mc-lbl"><i class="ti ti-star" aria-hidden="true"></i> NPS recomendaci&oacute;n P2</div><div class="mc-val" style="color:'+npsC(nP2.nps)+'">'+(nP2.nps>=0?'+':'')+nP2.nps+'</div><div class="mc-sub">'+L2[0]+'</div></div>'+
+      '<div class="mc"><div class="mc-lbl">NPS satisfacci&oacute;n P1</div><div class="mc-val" style="color:'+npsC(nP1.nps)+'">'+(nP1.nps>=0?'+':'')+nP1.nps+'</div><div class="mc-sub">'+L1[0]+'</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Satisfacci&oacute;n promedio P1</div><div class="mc-val">'+avgP1+'<span style="font-size:12px;color:#aaa">/9</span></div></div>'+
+      '<div class="mc"><div class="mc-lbl">Recomendaci&oacute;n promedio P2</div><div class="mc-val">'+avgP2+'<span style="font-size:12px;color:#aaa">/9</span></div></div>'+
+      '<div class="mc"><div class="mc-lbl">Promotores (cal. 9)</div><div class="mc-val g">'+nP2.prom+'</div><div class="mc-sub">'+pct(nP2.prom,nP2.tot)+'% del total</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Detractores (cal. 1&#8211;6)</div><div class="mc-val r">'+nP2.det+'</div><div class="mc-sub">'+pct(nP2.det,nP2.tot)+'% &middot; seguimiento</div></div>'
+    );
+    var lgTxt='<span><span class="lgd" style="background:#c0392b"></span>Detractor (1&#8211;6)</span><span><span class="lgd" style="background:#F78805"></span>Pasivo (7&#8211;8)</span><span><span class="lgd" style="background:#1D9E75"></span>Promotor (9)</span>';
+    html('lg-p1',lgTxt); html('lg-p2',lgTxt);
+    var sC=['1','2','3','4','5','6','7','8','9'];
+    var sCol=sC.map(function(_,i){return i<=5?'#c0392b':i<=7?'#F78805':'#1D9E75';});
+    barV('ch-p1',sC,[{data:sC.map(function(_,i){return d.p1[i+1]||0;}),backgroundColor:sCol,label:'P1'}]);
+    barV('ch-p2',sC,[{data:sC.map(function(_,i){return d.p2[i+1]||0;}),backgroundColor:sCol,label:'P2'}]);
+    var svcs=Object.keys(d.svc).map(function(k){return[k,d.svc[k]];}).sort(function(a,b){return b[1].nps-a[1].nps;});
+    var maxN=Math.max.apply(null,svcs.map(function(s){return s[1].n;}));
+    html('svc-chart',svcs.map(function(s){
+      var nm=s[0],v=s[1],c=v.nps>=50?'#1D9E75':v.nps>=0?'#F78805':'#c0392b';
+      var w=Math.max(Math.round(v.n/maxN*100),6);
+      return '<div class="sr"><div class="sn" title="'+nm+'">'+nm+'</div><div class="sbw"><div class="sb" style="width:'+w+'%;background:#F78805">'+v.n+' enc.</div></div><div class="snps" style="color:'+c+'">'+(v.nps>=0?'+':'')+v.nps+'</div><div style="font-size:10px;color:#aaa;min-width:52px;text-align:right">P1:'+v.p1+' P2:'+v.p2+'</div></div>';
+    }).join(''));
+    var asegs=Object.keys(d.aseg).map(function(k){return[k,d.aseg[k]];}).sort(function(a,b){return b[1].nps-a[1].nps;});
+    var maxA=Math.max.apply(null,asegs.map(function(s){return s[1].n;}));
+    html('aseg-chart',asegs.map(function(s){
+      var nm=s[0],v=s[1],c=v.nps>=50?'#1D9E75':v.nps>=0?'#F78805':'#c0392b';
+      return '<div class="sr"><div class="sn" title="'+nm+'">'+nm+'</div><div class="sbw"><div class="sb" style="width:'+Math.max(Math.round(v.n/maxA*100),6)+'%;background:#7A7A7A">'+v.n+' pac.</div></div><div class="snps" style="color:'+c+'">'+(v.nps>=0?'+':'')+v.nps+'</div><div style="font-size:10px;color:#aaa;min-width:36px;text-align:right">n='+v.n+'</div></div>';
+    }).join(''));
   }
 
   if(pg==='p-nps'){
-    document.getElementById('nps-num').textContent=(nP2.nps>=0?'+':'')+nP2.nps;
-    document.getElementById('nps-num').style.color=npsC(nP2.nps);
-    document.getElementById('nps-badge').innerHTML=`<span class="badge" style="background:${bg};color:${fg}">${lbl}</span>`;
-    document.getElementById('nps-p1-num').textContent=(nP1.nps>=0?'+':'')+nP1.nps;
-    document.getElementById('nps-p1-num').style.color=npsC(nP1.nps);
-    document.getElementById('nps-p1-badge').innerHTML=`<span class="badge" style="background:${bg1};color:${fg1}">${lbl1}</span>`;
-    document.getElementById('nps-formula').innerHTML=
-      `Fórmula NPS = % Promotores − % Detractores<br>`+
-      `Promotores (9): <b style="color:#1D9E75">${nP2.prom}</b> = ${pct(nP2.prom,nP2.tot)}%<br>`+
-      `Detractores (1–6): <b style="color:#c0392b">${nP2.det}</b> = ${pct(nP2.det,nP2.tot)}%<br>`+
-      `NPS = <b style="color:${npsC(nP2.nps)}">${(nP2.nps>=0?'+':'')+nP2.nps}</b>`;
-    document.getElementById('gauge-pin').style.left=(Math.min(Math.max((nP2.nps+100)/200,0),1)*100)+'%';
-    document.getElementById('nps-segs').innerHTML=
-      `<div class="seg" style="background:#fdecea"><div class="seg-v" style="color:#c0392b">${nP2.det}</div><div class="seg-l" style="color:#c0392b">Detractores</div><div class="seg-p" style="color:#c0392b">Cal. 1–6 · ${pct(nP2.det,nP2.tot)}%</div></div>`+
-      `<div class="seg" style="background:#fff3e0"><div class="seg-v" style="color:#8a4f00">${nP2.pas}</div><div class="seg-l" style="color:#8a4f00">Pasivos</div><div class="seg-p" style="color:#8a4f00">Cal. 7–8 · ${pct(nP2.pas,nP2.tot)}%</div></div>`+
-      `<div class="seg" style="background:#e8f8f1"><div class="seg-v" style="color:#0F6E56">${nP2.prom}</div><div class="seg-l" style="color:#0F6E56">Promotores</div><div class="seg-p" style="color:#0F6E56">Cal. 9 · ${pct(nP2.prom,nP2.tot)}%</div></div>`;
-    const cc=document.getElementById('nps-comp-card');
+    el('nps-num').textContent=(nP2.nps>=0?'+':'')+nP2.nps;
+    el('nps-num').style.color=npsC(nP2.nps);
+    html('nps-badge','<span class="bdg" style="background:'+L2[1]+';color:'+L2[2]+'">'+L2[0]+'</span>');
+    el('nps-p1-num').textContent=(nP1.nps>=0?'+':'')+nP1.nps;
+    el('nps-p1-num').style.color=npsC(nP1.nps);
+    html('nps-p1-badge','<span class="bdg" style="background:'+L1[1]+';color:'+L1[2]+'">'+L1[0]+'</span>');
+    html('nps-formula',
+      'F&oacute;rmula NPS = % Promotores &minus; % Detractores<br>'+
+      'Promotores (9): <b style="color:#1D9E75">'+nP2.prom+'</b> = '+pct(nP2.prom,nP2.tot)+'%<br>'+
+      'Detractores (1&#8211;6): <b style="color:#c0392b">'+nP2.det+'</b> = '+pct(nP2.det,nP2.tot)+'%<br>'+
+      'NPS = <b style="color:'+npsC(nP2.nps)+'">'+(nP2.nps>=0?'+':'')+nP2.nps+'</b>'
+    );
+    el('gauge-pin').style.left=(Math.min(Math.max((nP2.nps+100)/200,0),1)*100)+'%';
+    html('nps-segs',
+      '<div class="seg" style="background:#fdecea"><div class="seg-v" style="color:#c0392b">'+nP2.det+'</div><div class="seg-l" style="color:#c0392b">Detractores</div><div class="seg-p" style="color:#c0392b">Cal. 1&#8211;6 &middot; '+pct(nP2.det,nP2.tot)+'%</div></div>'+
+      '<div class="seg" style="background:#fff3e0"><div class="seg-v" style="color:#8a4f00">'+nP2.pas+'</div><div class="seg-l" style="color:#8a4f00">Pasivos</div><div class="seg-p" style="color:#8a4f00">Cal. 7&#8211;8 &middot; '+pct(nP2.pas,nP2.tot)+'%</div></div>'+
+      '<div class="seg" style="background:#e8f8f1"><div class="seg-v" style="color:#0F6E56">'+nP2.prom+'</div><div class="seg-l" style="color:#0F6E56">Promotores</div><div class="seg-p" style="color:#0F6E56">Cal. 9 &middot; '+pct(nP2.prom,nP2.tot)+'%</div></div>'
+    );
+    var cc=el('nps-comp-card');
     if(m==='all'){
       cc.style.display='';
-      mkC('ch-npscomp',{type:'line',data:{labels:['Mayo 2026','Junio 2026'],datasets:[
-        {label:'NPS P2',data:[calcNPS(DB.Mayo.p2).nps,calcNPS(DB.Junio.p2).nps],borderColor:'#F78805',backgroundColor:'rgba(247,136,5,.08)',borderWidth:2.5,pointBackgroundColor:'#F78805',pointRadius:7,fill:true,tension:.35},
-        {label:'NPS P1',data:[calcNPS(DB.Mayo.p1).nps,calcNPS(DB.Junio.p1).nps],borderColor:'#7A7A7A',backgroundColor:'rgba(122,122,122,.06)',borderWidth:2.5,pointBackgroundColor:'#7A7A7A',pointRadius:7,fill:true,tension:.35}
-      ]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,callbacks:{label:c=>' '+c.dataset.label+': '+(c.parsed.y>=0?'+':'')+c.parsed.y}}},scales:{x:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:12},color:'#7A7A7A'}},y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:11},color:'#7A7A7A'},min:0,max:100}}}});
-    }else cc.style.display='none';
-    document.getElementById('mc-nps').innerHTML=
-      `<div class="mc"><div class="mc-lbl">Prom. satisfacción P1</div><div class="mc-val">${avgP1}<span style="font-size:12px;color:#aaa">/9</span></div></div>`+
-      `<div class="mc"><div class="mc-lbl">Prom. recomendación P2</div><div class="mc-val">${avgP2}<span style="font-size:12px;color:#aaa">/9</span></div></div>`+
-      `<div class="mc"><div class="mc-lbl">Cal. 9 en satisfacción</div><div class="mc-val green">${pct(d.p1[9]||0,nP1.tot)}%</div><div class="mc-sub">${d.p1[9]||0} pacientes</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Cal. 9 en recomendación</div><div class="mc-val green">${pct(d.p2[9]||0,nP2.tot)}%</div><div class="mc-sub">${d.p2[9]||0} pacientes</div></div>`;
-    document.getElementById('qual-grid').innerHTML=
-      `<div class="qual" style="background:#e8f8f1;border-color:#1D9E75"><div class="qual-t" style="color:#0F6E56"><i class="ti ti-thumb-up" aria-hidden="true"></i> Fortalezas</div><div class="qual-b" style="color:#085041">NPS ${(nP2.nps>=0?'+':'')+nP2.nps} indica ${nP2.nps>=50?'alta':'positiva'} lealtad. El ${pct(nP2.prom,nP2.tot)}% de promotores refleja experiencias sobresalientes. Promedio de satisfacción ${avgP1}/9 muestra consistencia en la calidad asistencial.</div></div>`+
-      `<div class="qual" style="background:#fff3e0;border-color:#F78805"><div class="qual-t" style="color:#8a4f00"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Puntos de atención</div><div class="qual-b" style="color:#6b3d00">${nP2.det} detractores (${pct(nP2.det,nP2.tot)}%) requieren seguimiento inmediato.${m==='all'||m==='Mayo'?' Enfermería de turnos presenta NPS negativo (−29) — intervención prioritaria.':''} Pacientes con P2 bajo pero P1 alto sugieren insatisfacción con aspectos no clínicos.</div></div>`+
-      `<div class="qual" style="background:#fef7ee;border-color:#F78805"><div class="qual-t" style="color:#8a4f00"><i class="ti ti-info-circle" aria-hidden="true"></i> Metodología</div><div class="qual-b" style="color:#6b3d00">Escala 1–9 adaptada: Promotor = 9 · Pasivo = 7–8 · Detractor = 1–6. NPS = % Promotores − % Detractores. Respondentes P2: ${nP2.tot}. Referencia sector salud: +30 bueno · +50 excelente · +70 clase mundial.</div></div>`+
-      `<div class="qual" style="background:#f5f5f5;border-color:#7A7A7A"><div class="qual-t" style="color:#555"><i class="ti ti-bulb" aria-hidden="true"></i> Acciones recomendadas</div><div class="qual-b" style="color:#666">Contactar detractores dentro de 48h. Documentar y replicar prácticas de servicios con NPS superior a 70. Monitorear tendencia mensual como KPI estratégico de calidad.</div></div>`;
+      var mP2=[calcNPS(DB.Mayo.p2).nps,calcNPS(DB.Junio.p2).nps];
+      var mP1=[calcNPS(DB.Mayo.p1).nps,calcNPS(DB.Junio.p1).nps];
+      mkC('ch-npscomp','line',
+        {labels:['Mayo 2026','Junio 2026'],datasets:[
+          {label:'NPS P2',data:mP2,borderColor:'#F78805',backgroundColor:'rgba(247,136,5,.08)',borderWidth:2.5,pointBackgroundColor:'#F78805',pointRadius:7,fill:true,tension:.35},
+          {label:'NPS P1',data:mP1,borderColor:'#7A7A7A',backgroundColor:'rgba(122,122,122,.06)',borderWidth:2.5,pointBackgroundColor:'#7A7A7A',pointRadius:7,fill:true,tension:.35}
+        ]},
+        {responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,callbacks:{label:function(c){return ' '+c.dataset.label+': '+(c.parsed.y>=0?'+':'')+c.parsed.y;}}}},scales:{x:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:12},color:'#7A7A7A'}},y:{grid:{color:'rgba(0,0,0,.04)'},ticks:{font:{size:11},color:'#7A7A7A'},min:0,max:100}}}
+      );
+    } else {cc.style.display='none';}
+    html('mc-nps',
+      '<div class="mc"><div class="mc-lbl">Prom. satisfacci&oacute;n P1</div><div class="mc-val">'+avgP1+'<span style="font-size:12px;color:#aaa">/9</span></div></div>'+
+      '<div class="mc"><div class="mc-lbl">Prom. recomendaci&oacute;n P2</div><div class="mc-val">'+avgP2+'<span style="font-size:12px;color:#aaa">/9</span></div></div>'+
+      '<div class="mc"><div class="mc-lbl">Cal. 9 en satisfacci&oacute;n</div><div class="mc-val g">'+pct(d.p1[9]||0,nP1.tot)+'%</div><div class="mc-sub">'+(d.p1[9]||0)+' pacientes</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Cal. 9 en recomendaci&oacute;n</div><div class="mc-val g">'+pct(d.p2[9]||0,nP2.tot)+'%</div><div class="mc-sub">'+(d.p2[9]||0)+' pacientes</div></div>'
+    );
+    html('qual-grid',
+      '<div class="ql" style="background:#e8f8f1;border-color:#1D9E75"><div class="ql-t" style="color:#0F6E56"><i class="ti ti-thumb-up" aria-hidden="true"></i> Fortalezas</div><div class="ql-b" style="color:#085041">NPS '+(nP2.nps>=0?'+':'')+nP2.nps+' indica '+(nP2.nps>=50?'alta':'positiva')+' lealtad. El '+pct(nP2.prom,nP2.tot)+'% de promotores refleja experiencias sobresalientes. Promedio de satisfacci&oacute;n '+avgP1+'/9 muestra consistencia en la calidad asistencial.</div></div>'+
+      '<div class="ql" style="background:#fff3e0;border-color:#F78805"><div class="ql-t" style="color:#8a4f00"><i class="ti ti-alert-triangle" aria-hidden="true"></i> Puntos de atenci&oacute;n</div><div class="ql-b" style="color:#6b3d00">'+nP2.det+' detractores ('+pct(nP2.det,nP2.tot)+'%) requieren seguimiento inmediato.'+(m==='all'||m==='Mayo'?' Enfermer&iacute;a de turnos presenta NPS negativo (&minus;29) &mdash; intervenci&oacute;n prioritaria.':'')+' Pacientes con P2 bajo pero P1 alto sugieren insatisfacci&oacute;n con aspectos no cl&iacute;nicos.</div></div>'+
+      '<div class="ql" style="background:#fef7ee;border-color:#F78805"><div class="ql-t" style="color:#8a4f00"><i class="ti ti-info-circle" aria-hidden="true"></i> Metodolog&iacute;a</div><div class="ql-b" style="color:#6b3d00">Escala 1&#8211;9 adaptada: Promotor = 9 &middot; Pasivo = 7&#8211;8 &middot; Detractor = 1&#8211;6. NPS = % Promotores &minus; % Detractores. Respondentes P2: '+nP2.tot+'. Referencia sector salud: +30 bueno &middot; +50 excelente &middot; +70 clase mundial.</div></div>'+
+      '<div class="ql" style="background:#f5f5f5;border-color:#7A7A7A"><div class="ql-t" style="color:#555"><i class="ti ti-bulb" aria-hidden="true"></i> Acciones recomendadas</div><div class="ql-b" style="color:#666">Contactar detractores dentro de 48h. Documentar y replicar pr&aacute;cticas de servicios con NPS superior a 70. Monitorear tendencia mensual como KPI estrat&eacute;gico de calidad.</div></div>'
+    );
+  }
+
+  if(pg==='p-gestion'){
+    html('mc-gest',
+      '<div class="mc"><div class="mc-lbl">Total registros</div><div class="mc-val">'+d.total.toLocaleString()+'</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Contestadas</div><div class="mc-val g">'+d.answer.toLocaleString()+'</div><div class="mc-sub">Contact ratio: '+pct(d.answer,d.total)+'%</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Sin respuesta</div><div class="mc-val a">'+d.noAnswer+'</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Buz&oacute;n de voz</div><div class="mc-val a">'+d.voicemail+'</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Encuestas P1</div><div class="mc-val g">'+d.encP1+'</div><div class="mc-sub">Survey ratio: '+pct(d.encP1,d.answer)+'%</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Encuestas P2</div><div class="mc-val g">'+d.encP2+'</div><div class="mc-sub">'+pct(d.encP2,d.encP1)+'% completaron P2</div></div>'
+    );
+    donut('ch-disp','lg-disp',['Contestadas','Sin respuesta','Buzon','Ocupado'],[d.answer,d.noAnswer,d.voicemail,d.busy+d.invalid],['#F78805','#7A7A7A','#fdc06a','#c0c0c0'],'llamadas');
+    donut('ch-dur','lg-dur',['>45 seg','1-15 seg','16-30 seg','31-45 seg'],[d.durGt45,d.dur1_15,d.dur16_30,d.dur31_45],['#F78805','#7A7A7A','#fdc06a','#c0c0c0'],'contestadas');
+    var svcsG=Object.keys(d.svc).map(function(k){return[k,d.svc[k]];}).sort(function(a,b){return b[1].n-a[1].n;});
+    var hS=svcsG.length*40+60;
+    barH('ch-serv','ch-serv-w',svcsG.map(function(s){return s[0];}),svcsG.map(function(s){return s[1].n;}),'#F78805',hS);
   }
 
   if(pg==='p-franjas'){
-    const hrOpt=d.hrC.indexOf(Math.max(...d.hrC));
-    const tasas=d.hrC.map((c,i)=>c>0?+((d.hrE[i]/c)*100).toFixed(1):0);
-    const tOpt=tasas.indexOf(Math.max(...tasas));
-    document.getElementById('mc-franjas').innerHTML=
-      `<div class="mc"><div class="mc-lbl">Franja pico de contacto</div><div class="mc-val">${HORAS[hrOpt]}</div><div class="mc-sub">${d.hrC[hrOpt]} contestadas</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Mayor tasa de conversión</div><div class="mc-val" style="color:#8a4f00">${HORAS[tOpt]}</div><div class="mc-sub">${tasas[tOpt]}% responden encuesta</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Mejor día</div><div class="mc-val green">Viernes</div><div class="mc-sub">${d.dC[4]} contactadas</div></div>`+
-      `<div class="mc"><div class="mc-lbl">Franja a evitar</div><div class="mc-val red">18–19 h</div><div class="mc-sub">Tasa encuesta muy baja</div></div>`;
-    barVert('ch-horas',HORAS,[{data:d.hrC,backgroundColor:'#F78805',label:'Contactadas'},{data:d.hrE,backgroundColor:'#7A7A7A',label:'Encuestas'}]);
-    document.getElementById('conv-bars').innerHTML=HORAS.map((h,i)=>{
-      const t=tasas[i],c=t>=75?'#1D9E75':t>=55?'#F78805':'#c0392b',bg2=t>=75?'#e8f8f1':t>=55?'#fff3e0':'#fdecea';
-      return`<div class="hr-row"><div class="hr-lbl">${h}</div><div class="hr-bar-w"><div class="hr-bar" style="width:${Math.max(t,3)}%;background:${c}">${t>=35?t+'%':''}</div></div><div class="hr-num">${t}%</div><span class="tasa-pill" style="background:${bg2};color:${c}">${t>=75?'Alta':t>=55?'Media':'Baja'}</span></div>`;
-    }).join('');
-    barVert('ch-dias',DIAS,[{data:d.dC,backgroundColor:'#F78805',label:'Contactadas'},{data:d.dE,backgroundColor:'#7A7A7A',label:'Encuestas'}]);
-    document.getElementById('franjas-ins').innerHTML=
-      `<div class="ins" style="background:#fff3e0"><div class="ins-t" style="color:#8a4f00"><i class="ti ti-clock" aria-hidden="true"></i> Ventana de oro: 10:00–12:00</div><div class="ins-b" style="color:#6b3d00">Concentra el mayor volumen de contacto. Priorizar la marcación masiva en este bloque maximiza el alcance de la gestión.</div></div>`+
-      `<div class="ins" style="background:#fef7ee"><div class="ins-t" style="color:#F78805"><i class="ti ti-target" aria-hidden="true"></i> Horario de calidad: 13:00–16:00</div><div class="ins-b" style="color:#6b3d00">Tasas de conversión superiores al 75%. Menor volumen pero mayor disposición del paciente. Ideal para seguimiento prioritario.</div></div>`+
-      `<div class="ins" style="background:#f5f5f5"><div class="ins-t" style="color:#555"><i class="ti ti-calendar" aria-hidden="true"></i> Priorizar viernes y martes</div><div class="ins-b" style="color:#666">Viernes concentra ~30% de contactos semanales y la mayor tasa de respuesta. Martes es el segundo día más productivo.</div></div>`+
-      `<div class="ins" style="background:#fdecea"><div class="ins-t" style="color:#8B0000"><i class="ti ti-ban" aria-hidden="true"></i> Evitar después de las 18:00</div><div class="ins-b" style="color:#8B0000">Tasas inferiores al 32%. Redistribuir esos intentos hacia los bloques de mañana para mejorar el retorno.</div></div>`;
+    var hrOpt=d.hrC.indexOf(Math.max.apply(null,d.hrC));
+    var tasas=d.hrC.map(function(c,i){return c>0?parseFloat((d.hrE[i]/c*100).toFixed(1)):0;});
+    var tOpt=tasas.indexOf(Math.max.apply(null,tasas));
+    html('mc-franjas',
+      '<div class="mc"><div class="mc-lbl">Franja pico de contacto</div><div class="mc-val">'+HORAS[hrOpt]+'</div><div class="mc-sub">'+d.hrC[hrOpt]+' contestadas</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Mayor tasa de conversi&oacute;n</div><div class="mc-val" style="color:#8a4f00">'+HORAS[tOpt]+'</div><div class="mc-sub">'+tasas[tOpt]+'% responden encuesta</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Mejor d&iacute;a</div><div class="mc-val g">Viernes</div><div class="mc-sub">'+d.dC[4]+' contactadas</div></div>'+
+      '<div class="mc"><div class="mc-lbl">Franja a evitar</div><div class="mc-val r">18&#8211;19 h</div><div class="mc-sub">Tasa encuesta muy baja</div></div>'
+    );
+    barV('ch-horas',HORAS,[{data:d.hrC,backgroundColor:'#F78805',label:'Contactadas'},{data:d.hrE,backgroundColor:'#7A7A7A',label:'Encuestas'}]);
+    html('conv-bars',HORAS.map(function(h,i){
+      var t=tasas[i];
+      var c=t>=75?'#1D9E75':t>=55?'#F78805':'#c0392b';
+      var bg=t>=75?'#e8f8f1':t>=55?'#fff3e0':'#fdecea';
+      return '<div class="hr"><div class="hrl">'+h+'</div><div class="hrbw"><div class="hrb" style="width:'+Math.max(t,3)+'%;background:'+c+'">'+(t>=35?t+'%':'')+'</div></div><div class="hrn">'+t+'%</div><span class="tp" style="background:'+bg+';color:'+c+'">'+(t>=75?'Alta':t>=55?'Media':'Baja')+'</span></div>';
+    }).join(''));
+    barV('ch-dias',DIAS,[{data:d.dC,backgroundColor:'#F78805',label:'Contactadas'},{data:d.dE,backgroundColor:'#7A7A7A',label:'Encuestas'}]);
+    html('franjas-ins',
+      '<div class="ins" style="background:#fff3e0"><div class="ins-t" style="color:#8a4f00"><i class="ti ti-clock" aria-hidden="true"></i> Ventana de oro: 10:00&#8211;12:00</div><div class="ins-b" style="color:#6b3d00">Concentra el mayor volumen de contacto. Priorizar la marcaci&oacute;n masiva en este bloque maximiza el alcance de la gesti&oacute;n.</div></div>'+
+      '<div class="ins" style="background:#fef7ee"><div class="ins-t" style="color:#F78805"><i class="ti ti-target" aria-hidden="true"></i> Horario de calidad: 13:00&#8211;16:00</div><div class="ins-b" style="color:#6b3d00">Tasas de conversi&oacute;n superiores al 75%. Menor volumen pero mayor disposici&oacute;n del paciente. Ideal para seguimiento prioritario.</div></div>'+
+      '<div class="ins" style="background:#f5f5f5"><div class="ins-t" style="color:#555"><i class="ti ti-calendar" aria-hidden="true"></i> Priorizar viernes y martes</div><div class="ins-b" style="color:#666">Viernes concentra ~30% de contactos semanales y la mayor tasa de respuesta. Martes es el segundo d&iacute;a m&aacute;s productivo.</div></div>'+
+      '<div class="ins" style="background:#fdecea"><div class="ins-t" style="color:#8B0000"><i class="ti ti-ban" aria-hidden="true"></i> Evitar despu&eacute;s de las 18:00</div><div class="ins-b" style="color:#8B0000">Tasas inferiores al 32%. Redistribuir esos intentos hacia los bloques de ma&ntilde;ana para mejorar el retorno.</div></div>'
+    );
   }
 }
 
+function goPage(id,btn){
+  document.querySelectorAll('.pg').forEach(function(p){p.classList.remove('on');});
+  document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('on');});
+  el(id).classList.add('on');
+  btn.classList.add('on');
+  setTimeout(render,60);
+}
+
 render();
+
+}); // end window.load
 </script>
 </body>
 </html>
