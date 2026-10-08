@@ -75,7 +75,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;f
     <select id="selMes" onchange="render()">
       <option value="all">A&ntilde;o completo 2026</option>
       <option value="Mayo">Mayo 2026</option>
-      <option value="Junio" selected>Junio 2026</option>
+      <option value="Junio">Junio 2026</option>
+      <option value="Septiembre" selected>Septiembre 2026</option>
     </select>
   </div>
 </div>
@@ -167,6 +168,16 @@ var DB = {
     aseg:{"Compensar":{n:225,nps:57},"Aliansalud":{n:152,nps:74},"Colsanitas":{n:48,nps:62},"Sura":{n:16,nps:75},"Allianz":{n:8,nps:21},"Medplus":{n:6,nps:50}},
     hrC:[58,62,163,189,156,34,106,33,25,17,12,0], hrE:[27,36,135,94,58,26,86,25,20,13,6,0],
     dC:[33,221,136,164,248,53], dE:[17,132,65,33,225,54]
+  },
+  Septiembre: {
+    total:2645, answer:2243, noAnswer:183, voicemail:198, busy:16, invalid:4,
+    durGt45:1013, dur1_15:162, dur31_45:648, dur16_30:420, encP1:1278, encP2:1227,
+    p1:{1:58,2:9,3:13,4:8,5:52,6:23,7:62,8:226,9:827},
+    p2:{1:51,2:11,3:12,4:7,5:28,6:26,7:62,8:173,9:857},
+    svc:{},
+    aseg:{},
+    hrC:[11,11,468,227,155,83,471,766,182,151,82,38], hrE:[7,3,332,139,88,49,260,177,99,77,45,15],
+    dC:[86,341,0,1384,563,271], dE:[34,151,0,651,315,140]
   }
 };
 var HORAS = ['8:00','9:00','10:00','11:00','12:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'];
@@ -196,35 +207,37 @@ function getMes() { return el('selMes').value; }
 function getData() {
   var m = getMes();
   if(m !== 'all') return DB[m];
-  var a=DB.Mayo, b=DB.Junio;
-  function add(k){ return a[k]+b[k]; }
-  function addD(o1,o2){ var r={}; [1,2,3,4,5,6,7,8,9].forEach(function(k){r[k]=(o1[k]||0)+(o2[k]||0);}); return r; }
-  function mergeObj(o1,o2,fn){
+  var meses = [DB.Mayo, DB.Junio, DB.Septiembre];
+  function add(k){ return meses.reduce(function(s,x){return s+x[k];},0); }
+  function addD(arr){ var r={}; [1,2,3,4,5,6,7,8,9].forEach(function(k){r[k]=arr.reduce(function(s,o){return s+(o[k]||0);},0);}); return r; }
+  function mergeObjs(objs,fn){
     var r={}, ks=[];
-    Object.keys(o1).forEach(function(k){if(ks.indexOf(k)<0)ks.push(k);});
-    Object.keys(o2).forEach(function(k){if(ks.indexOf(k)<0)ks.push(k);});
-    ks.forEach(function(k){ var v=fn(o1[k],o2[k]); if(v) r[k]=v; });
+    objs.forEach(function(o){ Object.keys(o).forEach(function(k){if(ks.indexOf(k)<0)ks.push(k);}); });
+    ks.forEach(function(k){ var v=fn(objs.map(function(o){return o[k];})); if(v) r[k]=v; });
     return r;
   }
-  var svc = mergeObj(a.svc,b.svc,function(x,y){
-    x=x||{n:0,nps:0,p1:0,p2:0}; y=y||{n:0,nps:0,p1:0,p2:0}; var n=x.n+y.n;
-    if(!n) return null;
-    return {n:n, nps:Math.round((x.nps*x.n+y.nps*y.n)/n), p1:parseFloat(((x.p1*x.n+y.p1*y.n)/n).toFixed(1)), p2:parseFloat(((x.p2*x.n+y.p2*y.n)/n).toFixed(1))};
+  var svc = mergeObjs(meses.map(function(x){return x.svc;}),function(arr){
+    arr=arr.map(function(x){return x||{n:0,nps:0,p1:0,p2:0};});
+    var n=arr.reduce(function(s,x){return s+x.n;},0); if(!n) return null;
+    return {n:n, nps:Math.round(arr.reduce(function(s,x){return s+x.nps*x.n;},0)/n),
+      p1:parseFloat((arr.reduce(function(s,x){return s+x.p1*x.n;},0)/n).toFixed(1)),
+      p2:parseFloat((arr.reduce(function(s,x){return s+x.p2*x.n;},0)/n).toFixed(1))};
   });
-  var aseg = mergeObj(a.aseg,b.aseg,function(x,y){
-    x=x||{n:0,nps:0}; y=y||{n:0,nps:0}; var n=x.n+y.n;
-    if(!n) return null;
-    return {n:n, nps:Math.round((x.nps*x.n+y.nps*y.n)/n)};
+  var aseg = mergeObjs(meses.map(function(x){return x.aseg;}),function(arr){
+    arr=arr.map(function(x){return x||{n:0,nps:0};});
+    var n=arr.reduce(function(s,x){return s+x.n;},0); if(!n) return null;
+    return {n:n, nps:Math.round(arr.reduce(function(s,x){return s+x.nps*x.n;},0)/n)};
   });
   return {
     total:add('total'), answer:add('answer'), noAnswer:add('noAnswer'), voicemail:add('voicemail'),
     busy:add('busy'), invalid:add('invalid'), durGt45:add('durGt45'), dur1_15:add('dur1_15'),
     dur31_45:add('dur31_45'), dur16_30:add('dur16_30'), encP1:add('encP1'), encP2:add('encP2'),
-    p1:addD(a.p1,b.p1), p2:addD(a.p2,b.p2), svc:svc, aseg:aseg,
-    hrC:HORAS.map(function(_,i){return a.hrC[i]+b.hrC[i];}),
-    hrE:HORAS.map(function(_,i){return a.hrE[i]+b.hrE[i];}),
-    dC:DIAS.map(function(_,i){return a.dC[i]+b.dC[i];}),
-    dE:DIAS.map(function(_,i){return a.dE[i]+b.dE[i];})
+    p1:addD(meses.map(function(x){return x.p1;})), p2:addD(meses.map(function(x){return x.p2;})),
+    svc:svc, aseg:aseg,
+    hrC:HORAS.map(function(_,i){return meses.reduce(function(s,x){return s+x.hrC[i];},0);}),
+    hrE:HORAS.map(function(_,i){return meses.reduce(function(s,x){return s+x.hrE[i];},0);}),
+    dC:DIAS.map(function(_,i){return meses.reduce(function(s,x){return s+x.dC[i];},0);}),
+    dE:DIAS.map(function(_,i){return meses.reduce(function(s,x){return s+x.dE[i];},0);})
   };
 }
 
@@ -394,9 +407,9 @@ function render() {
     if(m==='all'){
       cc.style.display='';
       mkC('ch-npscomp','line',
-        {labels:['Mayo 2026','Junio 2026'], datasets:[
-          {label:'NPS P2',data:[calcNPS(DB.Mayo.p2).nps,calcNPS(DB.Junio.p2).nps],borderColor:'#F78805',backgroundColor:'rgba(247,136,5,.08)',borderWidth:2.5,pointBackgroundColor:'#F78805',pointRadius:7,fill:true,tension:.35},
-          {label:'NPS P1',data:[calcNPS(DB.Mayo.p1).nps,calcNPS(DB.Junio.p1).nps],borderColor:'#6EC1E4',backgroundColor:'rgba(110,193,228,.08)',borderWidth:2.5,pointBackgroundColor:'#6EC1E4',pointRadius:7,fill:true,tension:.35}
+        {labels:['Mayo 2026','Junio 2026','Sep 2026'], datasets:[
+          {label:'NPS P2',data:[calcNPS(DB.Mayo.p2).nps,calcNPS(DB.Junio.p2).nps,calcNPS(DB.Septiembre.p2).nps],borderColor:'#F78805',backgroundColor:'rgba(247,136,5,.08)',borderWidth:2.5,pointBackgroundColor:'#F78805',pointRadius:7,fill:true,tension:.35},
+          {label:'NPS P1',data:[calcNPS(DB.Mayo.p1).nps,calcNPS(DB.Junio.p1).nps,calcNPS(DB.Septiembre.p1).nps],borderColor:'#6EC1E4',backgroundColor:'rgba(110,193,228,.08)',borderWidth:2.5,pointBackgroundColor:'#6EC1E4',pointRadius:7,fill:true,tension:.35}
         ]},
         {responsive:true,maintainAspectRatio:false,
          plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,callbacks:{label:function(c){return ' '+c.dataset.label+': '+sign(c.parsed.y)+c.parsed.y;}}}},
